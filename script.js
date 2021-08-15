@@ -31,72 +31,57 @@ function formatHora(hora){
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                          API
 
-// Achar Cidade
-const geoLocal_URL = "https://ip-api.com/json/?fields=61439"
-getLocal(geoLocal_URL)
-async function getLocal(geoLocal_URL){
-    const cidade_inner = document.getElementById('cidade')
-    let resp = await fetch(geoLocal_URL)
-    let json1 = await resp.json()
-    console.log(json1)
+getLocation()
+// Achar localizacao
+function getLocation(){
+    navigator.geolocation.getCurrentPosition(findLocation, showError, {enableHighAccuracy:true,maximumAge:600000})
+}
+
+function showError(error) {
+    alert(error.code + ' ' + error.message);
+}
+
+function findLocation(position){
+    const latitude = position.coords.latitude
+    const longitude = position.coords.longitude
     
-    if(json1.status === 'success'){
-        const cidade = json1.city
-        cidade_inner.innerHTML = cidade
-        const lat = json1.lat
-        const lon = json1.lon
-        getTempo(lat, lon)
-    }
-    else{
-        alert('Erro ao obter localização')
-        cidade_inner.innerHTML = 'Rio de Janeiro'
-        getTempo2('Rio%20de%20Janeiro')
-    }
+    getCity(latitude, longitude)
+}
+
+
+async function getCity(latitude, longitude){
+    const cidade_URL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCosb0MEIu5QMg8UhvUt0atgr5P90PSae8`
+    let response = await fetch(cidade_URL)
+    let json = await response.json()
+    console.log(json)
+   
+    const cidade = json.results[11].address_components[0].long_name
+    const cidade_inner = document.getElementById('cidade')
+    cidade_inner.innerHTML = formatText(cidade)
+    getTempo(cidade)
 }
 
 // Achar tempo
-async function getTempo(lat, lon){
-    const icone_tempo = document.getElementById('icone-tempo')
-    let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
-
-    let response = await fetch(tempo_URL)
-    let json2 = await response.json()
-
-    const icone = json2.weather[0].icon
-    const icone_url = `http://openweathermap.org/img/wn/${icone}@2x.png`
-    icone_tempo.src = icone_url
-
-    console.log(json2)
-
-    imprimeTemp(json2)
-    imprimePressao(json2)
-    imprimeVento(json2)
-    imprimeSensacao(json2)
-    imprimeSol(json2)
-    imprimeUmidade(json2)
-}
-
-// Achar tempo
-async function getTempo2(cidade){
+async function getTempo(cidade){
     const icone_tempo = document.getElementById('icone-tempo')
     let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
 
     let response = await fetch(tempo_URL)
-    let json2 = await response.json()
+    let json = await response.json()
 
-    const icone = json2.weather[0].icon
+    const icone = json.weather[0].icon
     const icone_url = `http://openweathermap.org/img/wn/${icone}@2x.png`
     icone_tempo.src = icone_url
 
-    console.log(json2, 'Segundo')
+    console.log(json, 'Segundo')
 
-    imprimeTempoAtual(json2)
-    imprimeTemp(json2)
-    imprimePressao(json2)
-    imprimeVento(json2)
-    imprimeSensacao(json2)
-    imprimeSol(json2)
-    imprimeUmidade(json2)
+    imprimeTempoAtual(json)
+    imprimeTemp(json)
+    imprimePressao(json)
+    imprimeVento(json)
+    imprimeSensacao(json)
+    imprimeSol(json)
+    imprimeUmidade(json)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
