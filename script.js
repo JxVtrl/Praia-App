@@ -55,7 +55,7 @@ async function getCity(latitude, longitude){
     let json = await response.json()
     console.log(json)
    
-    const cidade = json.results[11].address_components[0].long_name
+    const cidade = json.results[0].address_components[3].long_name
     const cidade_inner = document.getElementById('cidade')
     cidade_inner.innerHTML = formatText(cidade)
     getTempo(cidade)
