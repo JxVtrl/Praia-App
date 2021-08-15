@@ -111,6 +111,7 @@ main{
 #title div{
     display: flex;
     flex-direction: column;
+    transform: translateY(-13px);
 }
 
 #title img{
