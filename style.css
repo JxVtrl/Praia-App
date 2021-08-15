@@ -17,137 +17,15 @@ body{
     height: 100vh;
     margin: 0 auto;
     background: #ffff;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
     overflow: hidden;
     background-image: url(https://i.pinimg.com/564x/4d/ce/3a/4dce3afd7081e79063132aa7a16902e0.jpg);
     background-size: cover;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
 }
 
 main{
     display: flex;
     width: 100%;
     height: 100%;
-}
-
-@media screen and (max-width: 400px){ 
-    #menu{
-        width: 75px;
-        height: 90%;
-        border-bottom-right-radius: 40px;
-        background-color: #1B1B1B;
-        box-shadow: 0px 4px 4px #0000004b;
-        overflow: hidden;    
-    }
-
-    #img-perfil{
-        width: 35px;
-        height: 35px;
-        margin: 40px 15px 0px;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-    #title-home{
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 50px;
-        width: 100%;
-        height: fit-content;
-        margin: 0 15px 15px 20px;
-        color: #ffffff;
-        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.371);
-        line-height: 2.9rem;
-        text-align: left;
-    }
-
-    .section{
-        z-index: 1;
-        width: 100%;
-        height: 250px;
-        margin: 5px;
-        background-image: linear-gradient(to top, #ffffffa6, #ffffff52);
-        border-radius: 5px;
-    }
-
-    .informacoes p{
-        font-size: 12px;
-    }
-
-    .temp-min-p{
-        font-size: 8px;
-    }
-
-    footer{
-        display: flex;
-        width: 100%;
-        height: 60px;
-        justify-content: space-around;
-        background-color: #f4f3ee;
-        box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.15);
-        border-bottom-left-radius: 40px;
-        border-bottom-right-radius: 40px;
-        transform: translateY(-60px);
-    }
-}
-
-@media screen and (min-width: 400px){ 
-    #menu{
-        width: 80px;
-        height: 88%;
-        border-bottom-right-radius: 40px;
-        background-color: #1B1B1B;
-        box-shadow: 0px 4px 4px #0000004b;
-        overflow: hidden;
-    }
-    #img-perfil{
-        width: 40px;
-        height: 40px;
-        margin: 40px 15px 0px;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-    #title-home{
-        font-size: 22px;
-        font-weight: 600;
-        line-height: 50px;
-        width: 100%;
-        height: fit-content;
-        margin: 0 15px 15px 20px;
-        color: #ffffff;
-        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.371);
-        line-height: 2.9rem;
-        text-align: left;
-    }
-
-    .section{
-        z-index: 1;
-        width: 100%;
-        height: 300px;
-        margin: 5px;
-        background-image: linear-gradient(to top, #ffffffa6, #ffffff52);
-        border-radius: 5px;
-    }
-
-    .temp-min-p{
-        font-size: 12px;
-        text-align: right;
-    }
-
-    footer{
-        display: flex;
-        width: 100%;
-        height: 75px;
-        justify-content: space-around;
-        background-color: #f4f3ee;
-        box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.15);
-        border-bottom-left-radius: 40px;
-        border-bottom-right-radius: 40px;
-        transform: translateY(-75px);
-    }
 }
 
 #img-perfil:hover{
@@ -171,7 +49,6 @@ main{
     padding: 20px 0;
     border-radius: 15px;
 }
-
 
 #menu-selection div p{
     margin: auto;
@@ -208,7 +85,6 @@ main{
 #header-icons{
     width: 70px;
     height: 50px;
-    
     display: flex;
     justify-content: space-around;
 }
@@ -305,4 +181,132 @@ footer div{
 
 footer div:hover{
     transform: rotate(360deg);
+}
+
+
+
+
+/** Celulares menores */
+@media screen and (max-width: 400px){ 
+    #menu{
+        width: 75px;
+        height: 90%;
+        border-bottom-right-radius: 40px;
+        background-color: #1B1B1B;
+        box-shadow: 0px 4px 4px #0000004b;
+        overflow: hidden;    
+    }
+
+    #img-perfil{
+        width: 35px;
+        height: 35px;
+        margin: 40px 15px 0px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    #title-home{
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 50px;
+        width: 100%;
+        height: fit-content;
+        margin: 0 15px 15px 20px;
+        color: #ffffff;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.371);
+        line-height: 2.9rem;
+        text-align: left;
+    }
+
+    .section{
+        z-index: 1;
+        width: 100%;
+        height: 250px;
+        margin: 5px;
+        background-image: linear-gradient(to top, #ffffffa6, #ffffff52);
+        border-radius: 5px;
+    }
+
+    .informacoes p{
+        font-size: 12px;
+    }
+
+    .temp-min-p{
+        font-size: 8px;
+    }
+
+    footer{
+        display: flex;
+        width: 100%;
+        height: 60px;
+        justify-content: space-around;
+        background-color: #f4f3ee;
+        box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.15);
+        transform: translateY(-60px);
+    }
+}
+
+/** Celulares maiores */
+@media screen and (min-width: 400px){ 
+    #mobile{
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+    
+    #menu{
+        width: 80px;
+        height: 88%;
+        border-bottom-right-radius: 40px;
+        background-color: #1B1B1B;
+        box-shadow: 0px 4px 4px #0000004b;
+        overflow: hidden;
+    }
+    #img-perfil{
+        width: 40px;
+        height: 40px;
+        margin: 40px 15px 0px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    #title-home{
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 50px;
+        width: 100%;
+        height: fit-content;
+        margin: 0 15px 15px 20px;
+        color: #ffffff;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.371);
+        line-height: 2.9rem;
+        text-align: left;
+    }
+
+    .section{
+        z-index: 1;
+        width: 100%;
+        height: 300px;
+        margin: 5px;
+        background-image: linear-gradient(to top, #ffffffa6, #ffffff52);
+        border-radius: 5px;
+    }
+
+    .temp-min-p{
+        font-size: 12px;
+        text-align: right;
+    }
+
+    footer{
+        display: flex;
+        width: 100%;
+        height: 75px;
+        justify-content: space-around;
+        background-color: #f4f3ee;
+        box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.15);
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        transform: translateY(-75px);
+    }
 }
