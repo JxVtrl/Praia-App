@@ -227,6 +227,17 @@ footer div:hover{
         border-radius: 5px;
     }
 
+    .section div {
+        width: fit-content;
+        margin: auto;
+      }
+
+    .section div i {
+        color: white;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.371);
+        margin-top: 5px;
+      }
+
     .informacoes p{
         font-size: 12px;
     }
