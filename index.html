@@ -46,13 +46,14 @@
                         <span id="descricao-tempo"></span>
                     </div>
                 </div>
-                
+
                 <div id="info">
                     <section class="section">
-                        <div>
-                            <i class="large material-icons">filter_drama</i>
-                        </div>
+                        
                         <div class="informacoes">
+                            <div class="icone-info">
+                                <i class="large material-icons">filter_drama</i>
+                            </div>
                             <p class="sensacao-title">Temperatura</p>
                             <p class="info"><span id="temp-atual"></span> °C</p>
                             <p class="temp-min-p">
@@ -63,37 +64,46 @@
                                     <span id="temp-maxima"></span> °C
                                 </sup>
                             </p>
-
-                            <p class="sensacao-title">Pressão</p>
-                            <p class="info-title"><span id="pressao" ></span> hPa</p>
-
-                            </br>
-                            <p class="sensacao-title">Umidade</p>
-                            <p class="info-title"><span id="umidade"></span>%</p>
-
+                            <div id="info-temp">
+                                <div>
+                                    <p class="sensacao-title">Pressão</p>
+                                    <p class="info-title"><span id="pressao" ></span> hPa</p>
+                                </div>
+                                </br>
+                                <div>
+                                    <p class="sensacao-title">Umidade</p>
+                                    <p class="info-title"><span id="umidade"></span>%</p>
+                                </div>
+                            </div>
                             </br>
                             <p class="sensacao-title">Vento: <span id="vento-velo"></span> km/h</p>
                         </div>
                     </section>
                     <section class="section">
-                        <div>
-                            <i class="large material-icons">beach_access</i>
-                        </div>
+                        
                         <div class="informacoes">
+                            <div class="icone-info">
+                                <i class="large material-icons">beach_access</i>
+                            </div>
                             <p class="sensacao-title">Sensação Térmica</p>
                             <p class="info"><span id="sensacao"></span> °C</p>
                             </br>
-                            <p class="sensacao-title">Nascer do Sol</p>
-                            <div>
-                                <span id="nascer-sol-hora"></span>:<span id="nascer-sol-minuto"></span>
+                            <div id="horas-container">
+                                <div>
+                                    <p class="sensacao-title">Nascer do Sol</p>
+                                    <div class="hora-sol">
+                                        <span id="nascer-sol-hora"></span>:<span id="nascer-sol-minuto"></span>
+                                    </div>
+                                </div>
+                                </br>
+                                <div>
+                                    <p class="sensacao-title">Pôr do Sol</p>
+                                    <div class="hora-sol">
+                                        <span id="por-sol-hora"></span>:<span id="por-sol-minuto"></span>
+                                    </div>
+                                </div>
                             </div>
                             </br>
-                            <p class="sensacao-title">Pôr do Sol</p>
-                            <div>
-                                <span id="por-sol-hora"></span>:<span id="por-sol-minuto"></span>
-                            </div>
-                            </br>
-                            
                         </div>
                     </section>
                 </div>
