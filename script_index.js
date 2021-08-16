@@ -176,28 +176,24 @@ function imprimeUmidade(data){
 }
 
 
+var tempoAgora
 // Tempo Atual
 function imprimeTempoAtual(data){
     const tempo_inner = document.getElementById('descricao-tempo')
     const bomdia = document.getElementById('bomdia')
-    let horas = new Date().getHours()
-    console.log(horas)
+    
     let tempo = data.weather[0].description
-
     tempo_inner.innerHTML = formatText(tempo) 
     
-    switch(horas){
-        case (horas > 6 && horas < 12):
-            bomdia.innerHTML += 'Bom dia,'
-            break
-        case (horas > 12 && horas < 18):
-            bomdia.innerHTML += 'Boa tarde,'
-            break
-        case (horas > 18 && horas < 24):
-            bomdia.innerHTML += 'Boa noite,'
-            break
-    }
+    tempoAgora = new Date()
 
+    let horas = Math.floor((tempoAgora / (1000 * 3600)) % 24) - 3;
+
+    console.log(horas)
+    if(horas > 6 && horas < 12) bomdia.innerHTML = 'Bom dia,'
+    if(horas > 12 && horas < 18) bomdia.innerHTML = 'Boa tarde,'
+    if(horas > 18 && horas < 24) bomdia.innerHTML = 'Boa noite,'
+    
 }
 
 function formatText(texto){
