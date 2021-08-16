@@ -6,6 +6,11 @@
     font-family: 'Poppins';
 }
 
+.active{
+    background-color: #d19b11;
+    color: #1B1B1B;
+}
+
 body{
     background-color: rgb(79, 79, 79);
 }
@@ -42,7 +47,7 @@ main{
     border-bottom-right-radius: 40px;
     background-color: #1B1B1B;
     box-shadow: 0px 4px 4px #0000004b;
-    overflow: hidden;  
+    overflow: hidden;
 }
 
 #menu-selection{
@@ -70,6 +75,10 @@ main{
     color: #969696;
     font-size: 22px;  
     font-weight: 600;
+}
+
+#menu-selection div a{
+    text-decoration: none;
 }
 
 #menu-selection div:hover{
@@ -253,8 +262,8 @@ footer div:hover{
 /** Celulares menores */
 @media screen and (max-width: 400px){ 
     #menu{
-        width: 75px;
         height: 90%;
+        width: 60px;  
     }
 
     #img-perfil{
@@ -303,7 +312,7 @@ footer div:hover{
     }
     
     #menu{
-        width: 80px;
+        width: 70px;  
         height: 88%;
     }
 
