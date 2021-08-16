@@ -23,8 +23,11 @@ body{
     margin: 0 auto;
     background: #ffff;
     overflow: hidden;
-    background-image: url(https://i.pinimg.com/564x/4d/ce/3a/4dce3afd7081e79063132aa7a16902e0.jpg);
     background-size: cover;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 main{
@@ -35,11 +38,10 @@ main{
 
 #img-container{
     width: fit-content;
-    margin: 10px auto;
+    margin: 30px auto 0 auto;
 }
 
 #img-perfil{
-    
     border-radius: 10px;
     cursor: pointer;
 }
@@ -55,7 +57,7 @@ main{
     width: 60px;
 }
 
-#menu-selection{
+#menu-lista{
     height: 85%;
     width: 60px;
     justify-content: space-around;
@@ -65,16 +67,16 @@ main{
     overflow: hidden;
 }
 
-#menu-selection div{
+.lista{
     transition: ease 0.6s;
     cursor: pointer;
     width: 100%;
     padding: 20px 0;
     border-radius: 15px;
+    text-align: center;
 }
 
-#menu-selection div p{
-    margin: auto;
+.lista span{
     writing-mode:vertical-rl;
     transform: rotate(180deg);
     color: #969696;
@@ -82,12 +84,12 @@ main{
     font-weight: 600;
 }
 
-#menu-selection div a{
+.lista a{
     text-decoration: none;
 }
 
-#menu-selection div:hover{
-    background-color: #FEB800;
+.lista:hover{
+    background-color: #af800a;
     color: #1B1B1B;
 }
 
@@ -128,33 +130,36 @@ main{
 }
 
 #title{
-    display: flex;
-    height: fit-content;    
-    margin-right: 15px;
-    overflow: hidden;
+    height: fit-content;   
+    margin: 0 20px 10px;
+    background-color: rgba(255, 255, 255, 0.083);
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px #0000000e;
 }
 
 #title-home{
     font-weight: 600;
     line-height: 50px;
     width: 100%;
-    height: fit-content;
-    margin: 0 15px 15px 20px;
     color: #ffffff;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.371);
     line-height: 2.9rem;
-    text-align: left;
+    text-align: center;
 }
 
-#title div{
+#cidade{
+    text-align: center;
+}
+
+#icone-tempo-container{
     display: flex;
     flex-direction: column;
     transform: translateY(-13px);
 }
 
-#title img{
-    width: 80px;
-    height: 80px;
+#icone-tempo-container img{
+    width: 70px;
+    height: 70px;
     align-self: center;
 }
 
@@ -165,9 +170,12 @@ main{
 
 #descricao-tempo{
     text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 12px;
     font-weight: 600;
-    padding: 2px;
-    background-color: #f4f3ee62;
+    padding: 4px;
+    background-color: #f4f3ee6e;
     border-radius: 5px;
 }
 
@@ -177,14 +185,30 @@ main{
     font-weight: 600;
 }
 
+.temp-minmax{
+    text-align: center;
+}
+
 .informacoes{
     height: fit-content;
+    width: 100%;
+    margin: auto;
+    
 }
 
 .icone-info i{
     color: white;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.371);
     margin-top: 5px;
+    text-align: center;
+}
+
+.info{
+    text-align: center;
+    font-weight: 500;
+}
+
+.info-title{
     text-align: center;
 }
 
@@ -198,16 +222,12 @@ main{
 .section-informacoes{
     width: 100%;
     margin: 5px;
-    background-image: linear-gradient(to top, #ffffffa6, #ffffff52);
+    background-image: linear-gradient(to top, #ffffff51, #ffffff27);
     border-radius: 5px;
-}
-
-.info-title{
-    text-align: center;
+    box-shadow: 0px 0px 15px #0000000e;
 }
 
 .sensacao-temp-title{
-    font-size: 14px;
     font-weight: 600;
     text-align: center;
 }
@@ -221,26 +241,28 @@ main{
 .pressao-umidade-title{
     text-align: center;
     font-weight: 600;
-    font-size: 13px;
 }
 
 #vento{
     font-size: 12px;
     font-weight: 600;
+    text-align: center;
+    transform: translateY(-15px);
 }
 
 .hora-sol{
     text-align: center;
-    font-size: 20px;
     font-weight: 500;
     margin: 0 auto;
 }
 
-.info{
+#info-temp{
+    
     text-align: center;
-    font-size: 20px;
-    font-weight: 500;
+    margin-bottom: 10px;
+    width: 100%;
 }
+
 
 footer{
     display: flex;
@@ -260,12 +282,20 @@ footer div{
     transition: transform .3s ease-in-out;
 }
 
-footer div:hover{
-    transform: rotate(360deg);
+.icone{
+    width: 25px;
+    height: 25px;
 }
 
 /** Celulares menores */
 @media screen and (max-width: 400px){ 
+    #mobile{
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
     #menu{
         height: 90%; 
     }
@@ -279,9 +309,12 @@ footer div:hover{
         font-size: 18px;
     }
 
-    #info{
-        margin: 15px 10px;
-        z-index: 1;
+    .pressao-umidade-title{
+        font-size: 13px;
+    }
+
+    .sensacao-temp-title{
+        font-size: 13px;
     }
 
     .section-informacoes{
@@ -289,15 +322,9 @@ footer div:hover{
         height: 250px;
     }
 
-    .section-informacoes div{
-        width: fit-content;
-        margin: auto;
-    }
-
     .temp-minmax{
         font-size: 10px;
-        text-align: center;
-        margin-bottom: 9px;
+        margin-bottom: 10px;
     }
 
     footer{
@@ -308,12 +335,6 @@ footer div:hover{
 
 /** Celulares maiores */
 @media screen and (min-width: 400px){ 
-    #mobile{
-        border-top-left-radius: 40px;
-        border-top-right-radius: 40px;
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
-    }
     
     #menu{
         height: 88%;
@@ -326,22 +347,117 @@ footer div:hover{
 
     #title{
         transform: translateY(-15px);
+        margin-top: 10px;
+    }
+
+    .section-informacoes{
+        transform: translateY(-15px);
     }
 
     #title-home{
         font-size: 22px;
     }
-    
-    #info-temp{
+
+    #horas-container{
         display: flex;
         justify-content: space-around;
-        text-align: center;
-        margin-bottom: 10px;
+    }
+    
+    #horas-container div{
+        width: 50%;
     }
 
-    #info{
-        margin: 0px 10px;
-        transform: translateY(-30px);
+    .hora-sol{
+        font-size: 20px;
+    }
+
+    #info-temp{
+        justify-content: space-around;
+        display: flex;
+    }
+
+    .sensacao-temp-title{
+        font-size: 20px;
+    }
+
+    .pressao-umidade-title{
+        font-size: 18px;
+    }
+
+    .section-informacoes{
+        max-width: 265px;
+        height: fit-content;
+    }
+
+    .temp-minmax{
+        font-size: 12px;
+        
+    }
+
+    footer{
+        height: 75px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        transform: translateY(-75px);
+    }
+}
+
+/** Ipad ou web */
+@media screen and (min-width: 600px){
+    #menu{
+        height: 90%;
+    }
+
+    #img-perfil{
+        width: 50px;
+        height: 50px;
+    }
+
+    #title{
+        transform: translateY(-15px);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .section-informacoes{
+        transform: translateY(0);
+    }
+
+    #title-home{
+        font-size: 25px;
+    }
+
+    #info-temp{
+        justify-content: space-around;
+        display: flex;
+    }
+
+    .sensacao-temp-title{
+        font-size: 22px;
+    }
+
+    .pressao-umidade-title{
+        font-size: 22px;
+    }
+
+    .nascer-por-sol-title{
+        font-size: 22px;
+    }
+
+    .hora-sol{
+        font-size: 22px;
+    }
+
+    .info{
+        font-size: 22px;
+    }
+
+    .info-title{
+        font-size: 20px;
+    }
+
+    .temp-minmax{
+        font-size: 18px;
     }
 
     #horas-container{
@@ -354,19 +470,11 @@ footer div:hover{
     }
 
     .section-informacoes{
-        max-width: 265px;
-        height: fit-content;
-    }
-
-    .temp-minmax{
-        font-size: 12px;
-        text-align: right;
-        text-align: center;
-        margin: 5px;
+        max-width: 350px;
     }
 
     footer{
-        height: 75px;
+        height: 90px;
         border-bottom-left-radius: 40px;
         border-bottom-right-radius: 40px;
         transform: translateY(-75px);
