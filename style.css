@@ -9,6 +9,7 @@
 .active{
     background-color: #d19b11;
     color: #1B1B1B;
+    transition: width 2s linear 1s;
 }
 
 body{
