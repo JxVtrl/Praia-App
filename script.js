@@ -2,19 +2,19 @@
 //                                          TEMPO
 
 // Tempo Agora
+tempo()
 setInterval(tempo, 1000)
 
 function tempo(){
-    const hora_inner = document.getElementById('horas')
-    const minuto_inner = document.getElementById('minutos')
-
-    const dataAtual = new Date()
-    const horaAtual = dataAtual.getHours()
-    const minutoAtual = dataAtual.getMinutes()
+    const dataAtual     = new Date()
+    const horaAtual     = dataAtual.getHours()
+    const minutoAtual   = dataAtual.getMinutes()
     
+    const hora_inner    = document.getElementById('horas')
+    const minuto_inner  = document.getElementById('minutos')
 
-    hora_inner.innerHTML = formatHora(horaAtual)
-    minuto_inner.innerHTML = formatHora(minutoAtual)
+    hora_inner.innerHTML    = formatHora(horaAtual)
+    minuto_inner.innerHTML  = formatHora(minutoAtual)
 }
 
 function formatHora(hora){
@@ -42,7 +42,7 @@ function showError(error) {
 }
 
 function findLocation(position){
-    const latitude = position.coords.latitude
+    const latitude  = position.coords.latitude
     const longitude = position.coords.longitude
     
     getCity(latitude, longitude)
@@ -178,127 +178,26 @@ function imprimeUmidade(data){
 
 // Tempo Atual
 function imprimeTempoAtual(data){
-    const tempo_atual_inner = document.getElementById('tempo-local-atual')
-    const descricao_tempo_inner = document.getElementById('descricao-tempo')
+    const tempo_inner = document.getElementById('descricao-tempo')
+    const bomdia = document.getElementById('bomdia')
+    let horas = new Date().getHours()
+    console.log(horas)
+    let tempo = data.weather[0].description
 
-    let tempo_atual = data.weather[0].main
-    let clouds = data.clouds.all
-    console.log(clouds)
-    let descricao_tempo = data.weather[0].description
-    let tempo_id = data.weather[0].id
-
-    descricao_tempo_inner.innerHTML = formatText(descricao_tempo) 
-
-    switch(tempo_id){
-        // nublado
-        case 800:
-            tempo_atual_inner.innerHTML = 'O céu está limpo'
+    tempo_inner.innerHTML = formatText(tempo) 
+    
+    switch(horas){
+        case (horas > 6 && horas < 12):
+            bomdia.innerHTML += 'Bom dia,'
             break
-        case 801:
-            tempo_atual_inner.innerHTML = 'poucas nuvens'
+        case (horas > 12 && horas < 18):
+            bomdia.innerHTML += 'Boa tarde,'
             break
-        case 802:
-            tempo_atual_inner.innerHTML = 'algumas nuvens'
-            break
-        case 803:
-            tempo_atual_inner.innerHTML = 'parcialmente nublado'
-            break
-        case 804:
-            tempo_atual_inner.innerHTML = 'tempo nublado'
-            break
-        
-        // tempo misto
-        case 701:
-            if(clouds >= 80) tempo_atual_inner.innerHTML = 'pancadas de chuva'
-            else if(clouds >= 60) tempo_atual_inner.innerHTML = 'chuva moderada'
-            else if (clouds > 40) tempo_atual_inner.innerHTML = 'chuva fraca'
-            else if (clouds >= 0) tempo_atual_inner.innerHTML = 'nublado'
-        break
-
-        // chuva
-        case 500:
-            tempo_atual_inner.innerHTML = 'chuva fraca'
-            break
-        case 501:
-            tempo_atual_inner.innerHTML = 'chuva moderada'
-            break
-        case 502:
-            tempo_atual_inner.innerHTML = 'chuva forte-moderada'
-            break
-        case 503:
-            tempo_atual_inner.innerHTML = 'chuva forte'
-            break
-        case 504:
-            tempo_atual_inner.innerHTML = 'chuva muito forte'
-            break
-        case 521:
-            tempo_atual_inner.innerHTML = 'chuva leve em nuvens passageiras'
-            break
-        case 522:
-            tempo_atual_inner.innerHTML = 'chuva intensa em nuvens passageiras'
-            break
-        case 531:
-            tempo_atual_inner.innerHTML = 'pancadas de chuva'
-            break
-        
-        // chuvisco
-        case 300:
-            tempo_atual_inner.innerHTML = 'chuvisco levo'
-            break
-        case 301:
-            tempo_atual_inner.innerHTML = 'chuvisco'
-            break
-        case 302:
-            tempo_atual_inner.innerHTML = 'chuvisco forte'
-            break
-        case 310:
-            tempo_atual_inner.innerHTML = 'chuvisco com chuva'
-            break
-        case 311:
-            tempo_atual_inner.innerHTML = 'chuvisco'
-            break
-        case 312:
-            tempo_atual_inner.innerHTML = 'chuvisco com chuva forte'
-            break
-        case 313:
-            tempo_atual_inner.innerHTML = 'chuvisco em nuvens passageiras'
-            break
-        case 314:
-            tempo_atual_inner.innerHTML = 'chuvisco forte com chuva'
-            break
-        case 321:
-            tempo_atual_inner.innerHTML = 'chuvisco em nuvens passageiras'
-            break
-         
-        // tempestade
-        case 200:
-            tempo_atual_inner.innerHTML = 'tempestade com chuva leve'    
-            break
-        case 201:
-            tempo_atual_inner.innerHTML = 'tempestade com chuva moderada'
-            break
-        case 202:
-            tempo_atual_inner.innerHTML = 'tempestade com chuva forte'
-            break
-        case 210:
-            tempo_atual_inner.innerHTML = 'trovoadas leves'
-            break
-        case 211:
-            tempo_atual_inner.innerHTML = 'trovoadas'
-            break
-        case 212:
-            tempo_atual_inner.innerHTML = 'trovoadas fortes'
-            break
-        case 230:
-            tempo_atual_inner.innerHTML = 'trovoadas com chuvisco leve'
-            break
-        case 231:
-            tempo_atual_inner.innerHTML = 'trovoadas com chuvisco'
-            break
-        case 232:
-            tempo_atual_inner.innerHTML = 'trovoadas com chuvisco forte'
+        case (horas > 18 && horas < 24):
+            bomdia.innerHTML += 'Boa noite,'
             break
     }
+
 }
 
 function formatText(texto){
