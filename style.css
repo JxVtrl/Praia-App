@@ -33,8 +33,13 @@ main{
     height: 100%;
 }
 
+#img-container{
+    width: fit-content;
+    margin: 10px auto;
+}
+
 #img-perfil{
-    margin: 40px 15px 0px;
+    
     border-radius: 10px;
     cursor: pointer;
 }
@@ -47,12 +52,12 @@ main{
     border-bottom-right-radius: 40px;
     background-color: #1B1B1B;
     box-shadow: 0px 4px 4px #0000004b;
-    overflow: hidden;
+    width: 60px;
 }
 
 #menu-selection{
     height: 85%;
-    width: 100%;
+    width: 60px;
     justify-content: space-around;
     align-items: center;
     display: flex;
@@ -262,8 +267,7 @@ footer div:hover{
 /** Celulares menores */
 @media screen and (max-width: 400px){ 
     #menu{
-        height: 90%;
-        width: 60px;  
+        height: 90%; 
     }
 
     #img-perfil{
@@ -312,7 +316,6 @@ footer div:hover{
     }
     
     #menu{
-        width: 70px;  
         height: 88%;
     }
 
