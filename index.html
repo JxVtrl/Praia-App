@@ -10,48 +10,57 @@
     <title>Praia App</title>
 </head>
 <body>
-    <div id="mobile">
+    <div id="mobile" style="background-image: url(https://i.pinimg.com/564x/4d/ce/3a/4dce3afd7081e79063132aa7a16902e0.jpg)">
         <main>
+
             <div id="menu">
                 <div id="img-container">
                     <img id="img-perfil" src="https://studiosol-a.akamaihd.net/letras/215x215/fotos/0/f/5/b/0f5b607d896de151a9d739b6dc2456e0.jpg">
                 </div>
-                <div id="menu-selection">
-                    <div class="active">
-                        <p>Hoje</p>
-                    </div>
-                    <div>
+
+                <ul id="menu-lista">
+                    <li class="lista active">
+                        <a href="#">
+                            <span class="title-menu">Hoje</span>
+                        </a>
+                    </li>
+                    <li class="lista">
                         <a href="barracas.html">
-                            <p>Barracas</p>
+                            <span class="title-menu">Barracas</span>
                         </a>
-                    </div>
-                    <div>
+                    </li>
+                    <li class="lista">
                         <a href="esporte.html">
-                            <p>Esporte</p>
+                            <span class="title-menu">Esporte</span>
                         </a>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
 
             <div id="content">
-
                 <header>
                     <div id="hora-atual">
                         <span id="horas"></span>:<span id="minutos"></span>
                     </div>
                     <div id="header-icons">
-                        <img src="assets/pesquisa.png">
-                        <img src="assets/galeria.png">
+                        <ion-icon class="icone" name="search-outline"></ion-icon>
+                        <ion-icon class="icone" name="map-outline"></ion-icon>
                     </div>
                 </header>
 
                 <div id="title">
-                    <h1 id="title-home">João, </br> <span id="tempo-local-atual"></span></br>em <span id="cidade"></span></h1>
-                    <div>
+                    <h1 id="title-home">
+                        <span id="bomdia"></span> João.</br> 
+                        <span id="cidade"></span>
+                    </h1>
+
+                    <div id="icone-tempo-container">
                         <img src="#" id="icone-tempo">
                         <span id="descricao-tempo"></span>
                         </br>
-                        <p id="vento">Vento: <span id="vento-velo"></span> km/h</p>
+                        <p id="vento">Vento: 
+                            <span id="vento-velo"></span> km/h
+                        </p>
                     </div>
                 </div>
 
@@ -120,12 +129,16 @@
 
         </main>
         <footer>
-            <div><img src="assets/home.png"></div>
-            <div><img src="assets/fav.png"></div>
-            <div><img src="assets/scan.png"></div>
-            <div><img src="assets/me.png"></div>
+            <div><ion-icon name="home-outline" class="icone"></ion-icon></div>
+            <div><ion-icon name="bookmark-outline" class="icone"></ion-icon></div>
+            <div><ion-icon name="scan-outline" class="icone"></ion-icon></div>
+            <div><ion-icon name="person-outline" class="icone"></ion-icon></div>
         </footer>
     </div>
+
+    
     <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
