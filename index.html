@@ -6,8 +6,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Praia App</title>
     <link rel="stylesheet" href="style.css">
+    <title>Praia App</title>
 </head>
 <body>
     <div id="mobile">
@@ -15,14 +15,18 @@
             <div id="menu">
                 <img id="img-perfil" src="https://studiosol-a.akamaihd.net/letras/215x215/fotos/0/f/5/b/0f5b607d896de151a9d739b6dc2456e0.jpg">
                 <div id="menu-selection">
-                    <div>
+                    <div class="active">
                         <p>Hoje</p>
                     </div>
                     <div>
-                        <p>Barracas</p>
+                        <a href="barracas.html">
+                            <p>Barracas</p>
+                        </a>
                     </div>
                     <div>
-                        <p>Esporte</p>
+                        <a href="esporte.html">
+                            <p>Esporte</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -40,7 +44,7 @@
                 </header>
 
                 <div id="title">
-                    <h1 id="title-home">João, </br> <span id="tempo-local-atual"></span></br>no <span id="cidade"></span></h1>
+                    <h1 id="title-home">João, </br> <span id="tempo-local-atual"></span></br>em <span id="cidade"></span></h1>
                     <div>
                         <img src="#" id="icone-tempo">
                         <span id="descricao-tempo"></span>
@@ -113,10 +117,6 @@
             </div>
 
         </main>
-        
-
-
-
         <footer>
             <div><img src="assets/home.png"></div>
             <div><img src="assets/fav.png"></div>
