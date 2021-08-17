@@ -71,12 +71,7 @@ async function getTempo(cidade){
     console.log(json)
 
     imprimeTempoAtual(json)
-    imprimeTemp(json)
-    imprimePressao(json)
-    imprimeVento(json)
-    imprimeSensacao(json)
-    imprimeSol(json)
-    imprimeUmidade(json)
+    
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -189,6 +184,12 @@ function imprimeTempoAtual(data){
     if(horas > 18 && horas < 24) bomdia.innerHTML = 'Boa noite,'
     
     imprimeIconeTempo(tempo, horas)
+    imprimeTemp(data)
+    imprimePressao(data)
+    imprimeVento(data)
+    imprimeSensacao(data)
+    imprimeSol(data)
+    imprimeUmidade(data)
 }
 
 function formatText(texto){
