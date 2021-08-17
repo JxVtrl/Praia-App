@@ -306,7 +306,7 @@ footer div{
     }
 
     #title{
-        transform: translateY(-15px);
+        transform: translateY(-25px);
         width: 280px;
     }
 
@@ -323,6 +323,7 @@ footer div{
     }
 
     .section-informacoes{
+        transform: translateY(-25px);
         max-width: 135px;
         height: 250px;
         margin: 0 5px 5px;
