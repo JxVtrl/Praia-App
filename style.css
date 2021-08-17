@@ -409,3 +409,157 @@ footer div{
     }
 }
 
+
+/** Iphone X
+ *  
+@media screen and (width: 375px), screen and (height: 812px){
+    #menu{
+        height: 90%;
+    }
+
+    #img-perfil{
+        width: 40px;
+        height: 40px;
+    }
+
+    #title{
+        margin-top: 30px;
+        width: 275px;
+    }
+
+    #title-home{
+        font-size: 24px;
+    }
+
+    #descricao-tempo{
+        font-size: 15px;
+    }
+
+    #horas-container{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    #horas-container div{
+        width: 50%;
+    }
+
+    .hora-sol{
+        font-size: 22px;
+    }
+
+    #info-temp{
+        justify-content: space-around;
+        display: flex;
+    }
+
+    .sensacao-temp-title{
+        font-size: 20px;
+    }
+
+    .pressao-umidade-title{
+        font-size: 16px;
+    }
+
+    .nascer-por-sol-title{
+        font-size: 16px;
+    }
+
+    #informacoes-container{
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+    }
+
+    .section-informacoes{
+        transform: translateY(-30px);
+        width: 275px;
+        height: fit-content;
+    }
+
+    .temp-minmax{
+        font-size: 14px;
+    }
+
+    footer{
+        height: 75px;
+        transform: translateY(-70px);
+    }
+}
+*/
+
+/** Ipad ou web */
+@media screen and (min-width: 600px){
+    #menu{
+        height: 90%;
+    }
+
+    #img-perfil{
+        width: 50px;
+        height: 50px;
+    }
+
+    #title{
+        width: 400px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .section-informacoes{
+        width: 400px;
+        margin-bottom: 15px;
+    }
+
+    #title-home{
+        font-size: 25px;
+    }
+
+    #info-temp{
+        justify-content: space-around;
+        display: flex;
+    }
+
+    .sensacao-temp-title{
+        font-size: 22px;
+    }
+
+    .pressao-umidade-title{
+        font-size: 22px;
+    }
+
+    .nascer-por-sol-title{
+        font-size: 22px;
+    }
+
+    .hora-sol{
+        font-size: 22px;
+    }
+
+    .info{
+        font-size: 22px;
+    }
+
+    .info-title{
+        font-size: 20px;
+    }
+
+    .temp-minmax{
+        font-size: 18px;
+    }
+
+    #horas-container{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    #horas-container div{
+        width: 50%;
+    }
+
+    footer{
+        height: 90px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        transform: translateY(-75px);
+    }
+}
