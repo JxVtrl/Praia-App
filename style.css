@@ -109,11 +109,11 @@ main{
     height: 100%;
 }
 
-#main-information{
-    animation: main-load 2s;
+#rest{
+    animation: info-load 3.5s;
 }
 
-@keyframes main-load {
+@keyframes info-load {
     0% {
         opacity: 0;
     }
@@ -126,16 +126,27 @@ main{
     
 }
 
+#main-information{
+    transform: translateY(-15px);
+}
+
+
 #content header{
     display: flex;
     height: 85px;
     align-items: center;
-    margin: 0 30px;
+    margin: 0 15px;
     justify-content: space-between;
-    animation: header-load 2s;
 }
 
-@keyframes header-load{
+#hora-atual{
+    color: white;
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #00000054;
+    animation: hora-load 2s;
+}
+
+@keyframes hora-load{
     0%{
         transform: translateY(-50px);
     }
@@ -144,27 +155,55 @@ main{
     }
 }
 
-#hora-atual{
-    color: white;
-    font-size: 30px;
-    text-shadow: 1px 1px 1px #00000054;
-}
-
 #header-icons{
     margin-top: 25px;
     width: 100px;
     height: 50px;
     display: flex;
     justify-content: space-around;
+    animation: icons-load 2s;
 }
 
+@keyframes icons-load{
+    0%{
+        transform: translateX(150px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
 
 #title{
     height: fit-content;   
     background-color: rgba(255, 255, 255, 0.083);
     border-radius: 5px;
     box-shadow: 0px 0px 15px #0000000e; 
-    margin: 10px auto;
+    margin: 0px auto;
+}
+
+#title-home-bomdia{
+    font-weight: 600;
+    line-height: 50px;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.371);
+    font-size: 22px;
+    animation: bomdia-load 2s;
+}
+
+@keyframes bomdia-load{
+    0%{
+        transform: scale(0);
+    }
+    60%{
+        transform: scale(0);
+    }
+    85%{
+        transform: scale(1.15);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
 #title-home{
@@ -340,7 +379,6 @@ footer div{
     }
 
     #title{
-        transform: translateY(-25px);
         width: 280px;
     }
 
@@ -386,9 +424,7 @@ footer div{
     }
 
     #title{
-        transform: translateY(-25px);
         width: 300px;
-
     }
 
     #title-home{
