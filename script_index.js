@@ -63,17 +63,12 @@ async function getCity(latitude, longitude){
 
 // Achar tempo
 async function getTempo(cidade){
-    const icone_tempo = document.getElementById('icone-tempo')
     let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
 
     let response = await fetch(tempo_URL)
     let json = await response.json()
 
-    const icone = json.weather[0].icon
-    const icone_url = `http://openweathermap.org/img/wn/${icone}@2x.png`
-    icone_tempo.src = icone_url
-
-    console.log(json, 'Segundo')
+    console.log(json)
 
     imprimeTempoAtual(json)
     imprimeTemp(json)
@@ -189,13 +184,29 @@ function imprimeTempoAtual(data){
 
     let horas = Math.floor((tempoAgora / (1000 * 3600)) % 24) - 3;
 
-    console.log(horas)
     if(horas > 6 && horas < 12) bomdia.innerHTML = 'Bom dia,'
     if(horas > 12 && horas < 18) bomdia.innerHTML = 'Boa tarde,'
     if(horas > 18 && horas < 24) bomdia.innerHTML = 'Boa noite,'
     
+    imprimeIconeTempo(tempo, horas)
 }
 
 function formatText(texto){
     return texto[0].toUpperCase() + texto.slice(1)
+}
+
+
+// Icone do tempo
+function imprimeIconeTempo(tempo, horas){
+    const icone = document.getElementById('icone-tempo-container')
+    switch(tempo){
+        case 'céu limpo':
+            if(horas > 6 && horas < 18) icone.innerHTML = `<ion-icon class="icone-tempo" name="sunny-sharp"></ion-icon>`
+            else icone.innerHTML = `<ion-icon class="icone-tempo" name="moon-sharp"></ion-icon>`
+            break
+        case 'nublado':
+            icone.innerHTML = `<ion-icon class="icone-tempo" name="cloud-sharp"></ion-icon>`
+            break
+        
+    }
 }

@@ -56,6 +56,16 @@ main{
     background-color: #1B1B1B;
     box-shadow: 0px 4px 4px #0000004b;
     width: 60px;
+    animation: nav-load 1s;
+}
+
+@keyframes nav-load{
+    0%{
+        transform: translateX(-50px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
 }
 
 #menu-lista{
@@ -99,36 +109,55 @@ main{
     height: 100%;
 }
 
+#main-information{
+    animation: main-load 2s;
+}
+
+@keyframes main-load {
+    0% {
+        opacity: 0;
+    }
+    60%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    
+}
+
 #content header{
     display: flex;
     height: 85px;
     align-items: center;
     margin: 0 30px;
     justify-content: space-between;
+    animation: header-load 2s;
+}
+
+@keyframes header-load{
+    0%{
+        transform: translateY(-50px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
 }
 
 #hora-atual{
     color: white;
     font-size: 30px;
+    text-shadow: 1px 1px 1px #00000054;
 }
 
 #header-icons{
-    margin-top: 30px;
+    margin-top: 25px;
     width: 100px;
     height: 50px;
     display: flex;
     justify-content: space-around;
 }
 
-#header-icons img{
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-}
-
-#header-icons img:hover{
-    transform: scale(1.05);
-}
 
 #title{
     height: fit-content;   
@@ -152,21 +181,22 @@ main{
     text-align: center;
 }
 
-#icone-tempo-container{
+#tempo-container{
     display: flex;
     flex-direction: column;
     transform: translateY(-13px);
 }
 
-#icone-tempo{
-    width: 70px;
-    height: 70px;
+#icone-tempo-container{
     align-self: center;
+    margin-top: 10px;
 }
 
-.icone-info{
-    width: fit-content;
-    margin: 0 auto;
+.icone-tempo{
+    width: 35px;
+    height: 35px;
+    color: white;
+    cursor: pointer;
 }
 
 #descricao-tempo{
@@ -174,10 +204,14 @@ main{
     margin: 0 auto;
     font-weight: 600;
     padding: 4px;
-    background-color: #f4f3ee6e;
+    background-color: #00000010;
+    color: white;
     border-radius: 5px;
+}
 
-    
+.icone-info{
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .temp-atual-p{
@@ -256,7 +290,6 @@ main{
 }
 
 #info-temp{
-    
     text-align: center;
     margin-bottom: 10px;
     width: 100%;
@@ -276,14 +309,16 @@ footer div{
     margin: auto;
     cursor: pointer;
     padding: 6px;
-    border-radius: 15px;
     width: 25px;
     transition: transform .3s ease-in-out;
 }
 
+
+
 .icone{
     width: 25px;
     height: 25px;
+    cursor: pointer;
 }
 
 /** Celulares menores */
