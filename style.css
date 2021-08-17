@@ -110,7 +110,7 @@ main{
 }
 
 #rest{
-    animation: info-load 3.5s;
+    animation: info-load 5s;
 }
 
 @keyframes info-load {
@@ -188,7 +188,7 @@ main{
     text-align: center;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.371);
     font-size: 22px;
-    animation: bomdia-load 2s;
+    animation: bomdia-load 3s;
 }
 
 @keyframes bomdia-load{
