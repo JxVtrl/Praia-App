@@ -287,7 +287,7 @@ footer div{
 }
 
 /** Celulares menores */
-@media screen and (max-width: 376px){ 
+@media screen and (max-width: 375px), screen and (min-width: 375px) { 
     #mobile{
         border-top-left-radius: 0;
         border-top-right-radius: 0;
@@ -341,7 +341,6 @@ footer div{
 
 /** Celulares maiores */
 @media screen and (min-width: 400px){ 
-    
     #menu{
         height: 88%;
     }
