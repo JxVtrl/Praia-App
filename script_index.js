@@ -4,15 +4,14 @@
 // Tempo Agora
 tempo()
 setInterval(tempo, 1000)
-
+var horaAtual
 function tempo(){
     const dataAtual     = new Date()
-    const horaAtual     = dataAtual.getHours()
+    horaAtual           = dataAtual.getHours()
     const minutoAtual   = dataAtual.getMinutes()
     
     const hora_inner    = document.getElementById('horas')
     const minuto_inner  = document.getElementById('minutos')
-
     hora_inner.innerHTML    = formatHora(horaAtual)
     minuto_inner.innerHTML  = formatHora(minutoAtual)
 }
@@ -71,7 +70,12 @@ async function getTempo(cidade){
     console.log(json)
 
     imprimeTempoAtual(json)
-    
+    imprimeTemp(json)
+    imprimePressao(json)
+    imprimeVento(json)
+    imprimeSensacao(json)
+    imprimeSol(json)
+    imprimeUmidade(json)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -90,7 +94,6 @@ function imprimeTemp(data){
     temp_atual.innerHTML = formatTemperatura(data.main.temp)
     temp_minima.innerHTML = formatTemperatura(data.main.temp_min)
     temp_maxima.innerHTML = formatTemperatura(data.main.temp_max)
-
 }
 
 function formatTemperatura(temp){
@@ -177,19 +180,13 @@ function imprimeTempoAtual(data){
     
     tempoAgora = new Date()
 
-    let horas = Math.floor((tempoAgora / (1000 * 3600)) % 24) - 3;
+    let horas = horaAtual;
 
     if(horas > 6 && horas < 12) bomdia.innerHTML = 'Bom dia,'
     if(horas > 12 && horas < 18) bomdia.innerHTML = 'Boa tarde,'
     if(horas > 18 && horas < 24) bomdia.innerHTML = 'Boa noite,'
     
     imprimeIconeTempo(tempo, horas)
-    imprimeTemp(data)
-    imprimePressao(data)
-    imprimeVento(data)
-    imprimeSensacao(data)
-    imprimeSol(data)
-    imprimeUmidade(data)
 }
 
 function formatText(texto){
