@@ -30,11 +30,13 @@ function formatHora(hora){
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                          API
 
+/*
 getLocation()
 // Achar localizacao
 function getLocation(){
     navigator.geolocation.getCurrentPosition(findLocation, showError, {enableHighAccuracy:true,maximumAge:600000})
 }
+*/
 
 function showError(error) {
     alert(error.code + ' ' + error.message);
@@ -59,10 +61,14 @@ async function getCity(latitude, longitude){
     cidade_inner.innerHTML = formatText(cidade)
     getTempo(cidade)
 }
+// teste polypane
+getTempo(cidade)
 
 // Achar tempo
 async function getTempo(cidade){
-    let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
+    //let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
+
+    let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?q=Rio%20de%20Janeiro&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
 
     let response = await fetch(tempo_URL)
     let json = await response.json()
@@ -180,11 +186,9 @@ function imprimeTempoAtual(data){
     
     tempoAgora = new Date()
 
-    let horas = horaAtual;
-
-    if(horas > 6 && horas < 12) bomdia.innerHTML = 'Bom dia,'
-    if(horas > 12 && horas < 18) bomdia.innerHTML = 'Boa tarde,'
-    if(horas > 18 && horas < 24) bomdia.innerHTML = 'Boa noite,'
+    if(horaAtual > 6 && horaAtual < 12) bomdia.innerHTML = 'Bom dia,'
+    if(horaAtual > 12 && horaAtual < 18) bomdia.innerHTML = 'Boa tarde,'
+    if(horaAtual > 18 && horaAtual < 24) bomdia.innerHTML = 'Boa noite,'
     
     imprimeIconeTempo(tempo, horas)
 }
