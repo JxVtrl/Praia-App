@@ -125,13 +125,9 @@
                                 </div>
                             </section>
                         </div>
-                        </div>
                     </div>
-
-
-
+                </div>
             </div>
-
         </main>
         <footer>
             <div><ion-icon name="home-outline" class="icone"></ion-icon></div>
@@ -145,5 +141,6 @@
     <script src="script_index.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <target name="build-for-ios-device-release" depends="clean,copy-ios-override,copy-libs,jar,clean-override"></target>
 </body>
 </html>
