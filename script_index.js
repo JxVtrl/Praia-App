@@ -1,5 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                       Entrada APP
+const mobile_show = document.getElementById('mobile')
+const first_hide = document.getElementById('first-container')
 
 function inputEntrada(){
     const nome = document.getElementById('nome-input').value
@@ -7,11 +9,12 @@ function inputEntrada(){
     console.log(sessionStorage.getItem('nome'))
     first_hide.classList.add('hide')
     mobile_show.classList.remove('hide')
+    const span_nome = document.getElementById('nome')
+    span_nome.innerHTML = sessionStorage.getItem('nome')
+    getLocation()
 }
 
 if(sessionStorage.getItem('nome')){
-    const mobile_show = document.getElementById('mobile')
-    const first_hide = document.getElementById('first-container')
     mobile_show.classList.remove('hide')
     first_hide.classList.add('hide')
     const span_nome = document.getElementById('nome')

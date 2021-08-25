@@ -47,9 +47,10 @@ body{
     padding: 3px;
     border: none;
     cursor: pointer;
+    background-color: #ffffff;
 }
 
-#form-entrada input:last-child:hover{
+#form-entrada button:hover{
     background-color: #d1d1d1;
 }
 
