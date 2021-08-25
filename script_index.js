@@ -30,13 +30,13 @@ function formatHora(hora){
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                          API
 
-/*
+
 getLocation()
 // Achar localizacao
 function getLocation(){
     navigator.geolocation.getCurrentPosition(findLocation, showError, {enableHighAccuracy:true,maximumAge:600000})
 }
-*/
+
 
 function showError(error) {
     alert(error.code + ' ' + error.message);
@@ -62,7 +62,7 @@ async function getCity(latitude, longitude){
     getTempo(cidade)
 }
 // teste polypane
-getTempo(cidade)
+//getTempo(cidade)
 
 // Achar tempo
 async function getTempo(cidade){
@@ -103,7 +103,7 @@ function imprimeTemp(data){
     temp_minima.innerHTML = formatTemperatura(data.main.temp_min)
     temp_maxima.innerHTML = formatTemperatura(data.main.temp_max)
 }
-
+//
 function formatTemperatura(temp){
     return Math.round(Number(temp) - 273.15)
 }
@@ -124,7 +124,7 @@ function imprimeVento(data){
     
     vento_velo_inner.innerHTML = formatVelocidade(data.wind.speed)
 }
-
+//
 function formatVelocidade(velo){
     return Math.round(Number(velo) * 3.6)
 }
@@ -194,7 +194,7 @@ function imprimeTempoAtual(data){
     
     imprimeIconeTempo(tempo, horas)
 }
-
+//
 function formatText(texto){
     return texto[0].toUpperCase() + texto.slice(1)
 }

@@ -105,6 +105,7 @@ main{
 
 #rest{
     animation: info-load 5s;
+    overflow-y: auto;
 }
 
 @keyframes info-load {
@@ -259,7 +260,6 @@ main{
 }
 
 .informacoes{
-    height: fit-content;
     width: 100%;
     margin: auto;
 }
@@ -331,6 +331,7 @@ main{
 
 
 footer{
+    position: relative;
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -354,7 +355,7 @@ footer div{
 }
 
 /** Celulares menores */
-@media screen and (max-height: 650px){ 
+@media screen and (max-height: 699px){ 
     
     #menu{
         height: 90%; 
@@ -394,8 +395,12 @@ footer div{
     }
 
     footer{
-        height: 50px;
-        transform: translateY(-50px);
+        height: 55px;
+        transform: translateY(-55px);
+    }
+
+    #rest{
+        height: 500px;
     }
 }
 
@@ -412,6 +417,7 @@ footer div{
 
     #title{
         width: 300px;
+        height: 160px;
         margin-bottom: 35px;
     }
 
@@ -452,7 +458,7 @@ footer div{
     .section-informacoes{
         transform: translateY(-30px);
         width: 300px;
-        height: fit-content;
+        height: 180px;
         margin: 10px auto;
     }
 
@@ -463,6 +469,10 @@ footer div{
     footer{
         height: 65px;
         transform: translateY(-65px);
+    }
+
+    #rest{
+        height: 550px;
     }
 }
 
@@ -559,12 +569,18 @@ footer div{
     #title{
         width: 400px;
         margin-top: 50px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
+    }
+
+    #informacoes-container{
+        max-width: 1000px;
+        margin: 0 auto;
     }
 
     .section-informacoes{
         width: 400px;
-        margin-bottom: 15px;
+        height: 230px;
+        margin: 15px auto;
     }
 
     #title-home{
@@ -616,5 +632,9 @@ footer div{
     footer{
         height: 90px;
         transform: translateY(-75px);
+    }
+
+    #rest{
+        height: 800px;
     }
 }
