@@ -1,4 +1,35 @@
 /////////////////////////////////////////////////////////////////////////////////////////
+//                                       Entrada APP
+
+document.getElementById('nome-input-btn').addEventListener('click', function inputEntrada(){
+    const entrada = document.getElementById('nome-input').value
+    sessionStorage.setItem('entrada', entrada)
+})
+
+console.log(sessionStorage.getItem('entrada'))
+
+if(sessionStorage.getItem('entrada')){
+    const mobile_show = document.getElementById('mobile')
+    const first_hide = document.getElementById('first-container')
+    mobile_show.classList.remove('hide')
+    first_hide.classList.add('hide')
+    const span_nome = document.getElementById('nome')
+    span_nome.innerHTML = sessionStorage.getItem('entrada')
+}
+else{
+    const mobile_hide = document.getElementById('mobile')
+    const first_show = document.getElementById('first-container')
+    first_show.classList.remove('hide')
+    mobile_hide.classList.add('hide')
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
 //                                          TEMPO
 
 // Tempo Agora
@@ -51,7 +82,7 @@ function findLocation(position){
 
 // Achar cidade API Google 
 async function getCity(latitude, longitude){
-    const cidade_URL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&ey=AIzaSyCosb0MEIu5QMg8UhvUt0atgr5P90PSae8`
+    const cidade_URL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCosb0MEIu5QMg8UhvUt0atgr5P90PSae8`
     let response = await fetch(cidade_URL)
     let json = await response.json()
     console.log(json)
@@ -66,9 +97,9 @@ async function getCity(latitude, longitude){
 
 // Achar tempo
 async function getTempo(cidade){
-    //let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
+    let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
 
-    let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?q=Rio%20de%20Janeiro&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
+    //let tempo_URL = `https://api.openweathermap.org/data/2.5/weather?q=Rio%20de%20Janeiro&lang=pt&appid=1124b498fe4c4e132eb3c4c95318b70a`
 
     let response = await fetch(tempo_URL)
     let json = await response.json()
