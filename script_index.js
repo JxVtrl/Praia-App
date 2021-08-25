@@ -1,20 +1,22 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                       Entrada APP
 
-document.getElementById('nome-input-btn').addEventListener('click', function inputEntrada(){
-    const entrada = document.getElementById('nome-input').value
-    sessionStorage.setItem('entrada', entrada)
-})
+function inputEntrada(){
+    const nome = document.getElementById('nome-input').value
+    sessionStorage.setItem('nome', formatText(nome))
+    console.log(sessionStorage.getItem('nome'))
+    first_hide.classList.add('hide')
+    mobile_show.classList.remove('hide')
+}
 
-console.log(sessionStorage.getItem('entrada'))
-
-if(sessionStorage.getItem('entrada')){
+if(sessionStorage.getItem('nome')){
     const mobile_show = document.getElementById('mobile')
     const first_hide = document.getElementById('first-container')
     mobile_show.classList.remove('hide')
     first_hide.classList.add('hide')
     const span_nome = document.getElementById('nome')
-    span_nome.innerHTML = sessionStorage.getItem('entrada')
+    span_nome.innerHTML = sessionStorage.getItem('nome')
+    getLocation()
 }
 else{
     const mobile_hide = document.getElementById('mobile')
@@ -62,7 +64,7 @@ function formatHora(hora){
 //                                          API
 
 
-getLocation()
+
 // Achar localizacao
 function getLocation(){
     navigator.geolocation.getCurrentPosition(findLocation, showError, {enableHighAccuracy:true,maximumAge:600000})
@@ -219,9 +221,9 @@ function imprimeTempoAtual(data){
     
     tempoAgora = new Date()
 
-    if(horaAtual > 6 && horaAtual < 12) bomdia.innerHTML = 'Bom dia,'
-    if(horaAtual > 12 && horaAtual < 18) bomdia.innerHTML = 'Boa tarde,'
-    if(horaAtual > 18 && horaAtual < 24) bomdia.innerHTML = 'Boa noite,'
+    if(horaAtual >= 5 && horaAtual < 12) bomdia.innerHTML = 'Bom dia,'
+    if(horaAtual >= 12 && horaAtual < 18) bomdia.innerHTML = 'Boa tarde,'
+    if((horaAtual >= 18 && horaAtual < 24) || horaAtual < 5) bomdia.innerHTML = 'Boa noite,'
     
     imprimeIconeTempo(tempo, horas)
 }

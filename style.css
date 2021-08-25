@@ -42,7 +42,7 @@ body{
 
 }
 
-#form-entrada input:last-child{
+#form-entrada button{
     border-radius: 5px;
     padding: 3px;
     border: none;
