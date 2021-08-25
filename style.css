@@ -23,6 +23,7 @@ body{
     background: #ffff;
     overflow: hidden;
     background-size: cover;
+    position: fixed;
 }
 
 main{
