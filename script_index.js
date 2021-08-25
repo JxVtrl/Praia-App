@@ -84,6 +84,8 @@ async function getTempo(cidade){
     imprimeUmidade(json)
 }
 
+// GOOGLE MAPS
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -198,7 +200,7 @@ function formatText(texto){
 }
 
 
-// Icone do tempo
+// Icone do tempo EM PROGRESSO
 function imprimeIconeTempo(tempo, horas){
     const icone = document.getElementById('icone-tempo-container')
     switch(tempo){
