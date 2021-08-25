@@ -85,7 +85,7 @@ main{
 .lista span{
     writing-mode:vertical-rl;
     transform: rotate(180deg);
-    color: #969696;
+    color: #dddcdc;
     font-size: 22px;  
     font-weight: 600;
 }
