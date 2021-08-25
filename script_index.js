@@ -51,7 +51,7 @@ function findLocation(position){
 
 // Achar cidade API Google 
 async function getCity(latitude, longitude){
-    const cidade_URL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCosb0MEIu5QMg8UhvUt0atgr5P90PSae8`
+    const cidade_URL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&ey=AIzaSyCosb0MEIu5QMg8UhvUt0atgr5P90PSae8`
     let response = await fetch(cidade_URL)
     let json = await response.json()
     console.log(json)

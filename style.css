@@ -12,6 +12,10 @@
     transition: width 2s linear 1s;
 }
 
+.hide{
+    display: none;
+}
+
 body{
     background-color: rgb(79, 79, 79);
 }
