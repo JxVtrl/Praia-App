@@ -61,9 +61,8 @@ document.getElementById('abrir-mapa').addEventListener('click', function(){
 
 
 // Iniciando o Maps
-function initMap(latitude, longitude) {
-    const localizacao = {lat:latitude, lng:longitude}
-    
+function initMap() {
+    // Opcoes do Mapa
     let options = {
         zoom:13,
         center: {lat:-22.983105686081743, lng:-43.211015324246624},
@@ -71,9 +70,6 @@ function initMap(latitude, longitude) {
         disableDefaultUI: true,
         fullscreenControl: true,
         zoomControl: true,
-        zoomControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_BOTTOM
-        },
         fullscreenControlOptions: {
             position: google.maps.ControlPosition.RIGHT_TOP
         },
@@ -171,7 +167,13 @@ function initMap(latitude, longitude) {
             content: '<h2>Casa</h2>',
             coords:{lat:-22.97416497753591, lng:-43.22750406210507},
             icon: 'assets/icon/location.png' // ICONE DE 32PX
-        }
+        },
+        {
+            nome: 'Barraca do Carlin',
+            numero: '24',
+            content: '<h2>Carlins</h2>',
+            coords:{lat:-22.98838140762506, lng:-43.22638630323435},
+        },
 
     ]
 
@@ -211,7 +213,7 @@ function initMap(latitude, longitude) {
 
         // Adiciona o marcador na lista
         lista_marcadores.innerHTML += `
-            <li class="item_lista">
+            <li class="item_lista" onclick="centralizar(props)">
                 <span class="numero_marcador">${props.numero}</span>
                 <span class="nome_marcador">${props.nome}</span>
                 <div class="info-go">
@@ -221,6 +223,8 @@ function initMap(latitude, longitude) {
             </li>`
 
     }
+
+    
 
 
 }
