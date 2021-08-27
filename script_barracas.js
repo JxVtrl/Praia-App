@@ -64,7 +64,6 @@ document.getElementById('abrir-mapa').addEventListener('click', function(){
 function initMap(latitude, longitude) {
     const localizacao = {lat:latitude, lng:longitude}
     
-    
     let options = {
         zoom:13,
         center: {lat:-22.983105686081743, lng:-43.211015324246624},
@@ -73,7 +72,6 @@ function initMap(latitude, longitude) {
         fullscreenControl: true,
         zoomControl: true,
         zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL,
             position: google.maps.ControlPosition.RIGHT_BOTTOM
         },
         fullscreenControlOptions: {
@@ -158,14 +156,18 @@ function initMap(latitude, longitude) {
     // Criando o mapa
     const map = new google.maps.Map(document.getElementById('map'), options);
 
+
     // Lista de Marcadores
     const marcadores = [
         {
+            nome: 'Posto 12',
+            numero: 'P12',
             content: '<h2>Posto 12</h2>',
             coords:{lat:-22.98783021016635, lng:-43.225977817476455},
             icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
         },
         {
+            nome: 'Casa',
             content: '<h2>Casa</h2>',
             coords:{lat:-22.97416497753591, lng:-43.22750406210507},
             icon: 'assets/icon/location.png' // ICONE DE 32PX
@@ -178,11 +180,12 @@ function initMap(latitude, longitude) {
         addMarker(marcadores[i])
     }
 
-    function addMarker(props, title){
+    function addMarker(props){
+        const lista_marcadores = document.getElementById('lista-barracas')
+
         let marker = new google.maps.Marker({
             position: props.coords,
             map: map,
-            content: `<h2>${title}</h2>`
         })
 
         // Verifica se tiver icone diferente
@@ -200,6 +203,22 @@ function initMap(latitude, longitude) {
                 infowindow.open(map, marker);
             })
         }
+
+        //Verifica se numero é undefined
+        if(!props.numero){
+            props.numero = '-'
+        }
+
+        // Adiciona o marcador na lista
+        lista_marcadores.innerHTML += `
+            <li class="item_lista">
+                <span class="numero_marcador">${props.numero}</span>
+                <span class="nome_marcador">${props.nome}</span>
+                <div class="info-go">
+                    <ion-icon name="ellipse-sharp" class="online"></ion-icon>
+                    <ion-icon name="chevron-forward-sharp"></ion-icon>
+                </div>
+            </li>`
 
     }
 
