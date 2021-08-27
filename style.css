@@ -393,6 +393,25 @@ footer div{
     cursor: pointer;
 }
 
+#map-container{
+    width: 100%;
+    height: 35%;
+    margin: auto;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+}
+
+#map-container-2{
+    width: 100%;
+    height: 100%; 
+    margin: auto;
+}
+
+
+
 /** Celulares menores */
 @media screen and (max-height: 699px){ 
     
