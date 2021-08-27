@@ -13,7 +13,8 @@
 </head>
 <body>
     <div id="mobile" style="background-image: url(https://images.pexels.com/photos/1938032/pexels-photo-1938032.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);">
-        <main>
+        
+        <main id="main">
             <div id="menu">
                 <div id="img-container">
                     <img id="img-perfil" src="https://studiosol-a.akamaihd.net/letras/215x215/fotos/0/f/5/b/0f5b607d896de151a9d739b6dc2456e0.jpg">
@@ -45,18 +46,22 @@
                     </div>
                     <div id="header-icons">
                         <ion-icon class="icone" name="search-outline"></ion-icon>
-                        <ion-icon class="icone" name="map-outline"></ion-icon>
+                        <ion-icon class="icone" name="map-outline" id="abrir-mapa"></ion-icon>
                     </div>
                 </header>
-
-
                 <!-- Continua ...-->
+
+                <div id="map-container" class="hide">
+                    <div id="map"></div>
+                </div>
+                
+
             </div>
     
 
 
         </main>
-        <footer>
+        <footer id="footer">
             <div><ion-icon name="home-outline" class="icone"></ion-icon></div>
             <div><ion-icon name="bookmark-outline" class="icone"></ion-icon></div>
             <div><ion-icon name="scan-outline" class="icone"></ion-icon></div>
@@ -64,8 +69,11 @@
         </footer>
     </div>
 
+    
     <script src="script_barracas.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOzH9qGL3ZnmYpXI9vPXRHSwtM9f3Meps&callback=initMap">
+</script>
 </body>
 </html>
