@@ -254,6 +254,9 @@ function imprimeIconeTempo(tempo, horas){
         case 'nuvens quebradas':
           icone.innerHTML = `<ion-icon class="icone-tempo" name="cloudy-sharp"></ion-icon>`
           break
+        case 'chuva fraca':
+        icone.innerHTML = `<ion-icon class="icone-tempo" name="rainy-sharp"></ion-icon>`
+        break
     }
 }
 
