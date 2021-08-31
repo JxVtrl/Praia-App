@@ -29,23 +29,22 @@ function formatHora(hora){
 //                                          MAPS
 
 // Achar localizacao
-getLocation()
-function getLocation(){
-    navigator.geolocation.getCurrentPosition(findLocation, showError, {enableHighAccuracy:true,maximumAge:600000})
-}
+// getLocation()
+// function getLocation(){
+//     navigator.geolocation.getCurrentPosition(findLocation, showError, {enableHighAccuracy:true,maximumAge:600000})
+// }
 
 
-function showError(error) {
-    alert(error.code + ' ' + error.message);
-}
+// function showError(error) {
+//     alert(error.code + ' ' + error.message);
+// }
 
-function findLocation(position){
-    const latitude  = position.coords.latitude
-    const longitude = position.coords.longitude
-    initMap(latitude, longitude)
-}
+// function findLocation(position){
+//     const latitude  = position.coords.latitude
+//     const longitude = position.coords.longitude
+// }
 
-
+const lista_marcadores = document.getElementById('lista-barracas')
 // Clique do Botão
 document.getElementById('abrir-mapa').addEventListener('click', function(){
     if(document.getElementById('map-container').classList.contains('hide')){
@@ -56,16 +55,30 @@ document.getElementById('abrir-mapa').addEventListener('click', function(){
         document.getElementById('map-container').classList.add('hide')
         document.getElementById('abrir-mapa').style.color = 'black'
     }
+
+    if(!lista_marcadores.innerHTML == ''){
+        lista_marcadores.innerHTML = ''
+    }
+    initMap()
 })
-// Segurar Mapa
+
 
 
 // Iniciando o Maps
-function initMap() {
+function initMap(coord) {
+    let initialCoord = {lat:-22.983105686081743, lng:-43.211015324246624}
+    let zoom = 13
+
+    if(coord){
+        initialCoord.lat = coord[0]
+        initialCoord.lng = coord[1]
+        zoom = 15
+    }
+
     // Opcoes do Mapa
     let options = {
-        zoom:13,
-        center: {lat:-22.983105686081743, lng:-43.211015324246624},
+        zoom: zoom,
+        center: initialCoord,
         mapTypeControl: false,
         disableDefaultUI: true,
         fullscreenControl: true,
@@ -152,7 +165,6 @@ function initMap() {
     // Criando o mapa
     const map = new google.maps.Map(document.getElementById('map'), options);
 
-
     // Lista de Marcadores
     const marcadores = [
         {
@@ -176,6 +188,8 @@ function initMap() {
         },
 
     ]
+    
+    
 
     // Adicionar todos os marcadores ao mapa
     for(let i = 0; i < marcadores.length; i++){
@@ -183,8 +197,6 @@ function initMap() {
     }
 
     function addMarker(props){
-        const lista_marcadores = document.getElementById('lista-barracas')
-
         let marker = new google.maps.Marker({
             position: props.coords,
             map: map,
@@ -213,19 +225,54 @@ function initMap() {
 
         // Adiciona o marcador na lista
         lista_marcadores.innerHTML += `
-            <li class="item_lista" onclick="centralizar(props)">
+            <li class="item_lista" id="${props.nome}">
                 <span class="numero_marcador">${props.numero}</span>
                 <span class="nome_marcador">${props.nome}</span>
-                <div class="info-go">
-                    <ion-icon name="ellipse-sharp" class="online"></ion-icon>
-                    <ion-icon name="chevron-forward-sharp"></ion-icon>
+                <div class="info-go" id="${props.nome}">
+                    <ion-icon name="ellipse-sharp" class="online" id="${props.nome}"></ion-icon>
+                    <ion-icon name="chevron-forward-sharp" id="${props.nome}"></ion-icon>
                 </div>
             </li>`
-
     }
 
-    
-
-
+    // Centralizar o mapa na posição do marcador ao ser clicado
+    document.querySelectorAll('.item_lista').forEach(item => {
+        item.addEventListener('click', function(event){
+            let lat, lng
+            event.preventDefault()
+            console.log(event.target)
+            for(let i = 0; i < marcadores.length; i++){
+                // Centralizar ao clicar no nome do marcador
+                if(marcadores[i].nome == event.target.innerHTML){
+                    let numeroObjeto = i
+                    lat = marcadores[numeroObjeto].coords.lat
+                    lng = marcadores[numeroObjeto].coords.lng
+                }
+                // Centralizar ao clicar no numero do marcador
+                if(marcadores[i].numero == event.target.innerHTML){
+                    let numeroObjeto = i
+                    lat = marcadores[numeroObjeto].coords.lat
+                    lng = marcadores[numeroObjeto].coords.lng
+                }
+                // Centralizar ao clicar no item da lista
+                if(marcadores[i].nome == event.target.id){
+                    let numeroObjeto = i
+                    lat = marcadores[numeroObjeto].coords.lat
+                    lng = marcadores[numeroObjeto].coords.lng
+                }
+            }
+            let coord = [lat, lng, 15]
+            
+            if(document.getElementById('map-container').classList.contains('hide')){
+                document.getElementById('map-container').classList.remove('hide')
+                document.getElementById('abrir-mapa').style.color = '#4d4d4d'
+            }
+            
+            if(!lista_marcadores.innerHTML == ''){
+                lista_marcadores.innerHTML = ''
+            }
+            initMap(coord)
+        })
+    })
 }
 
