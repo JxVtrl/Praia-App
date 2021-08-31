@@ -73,7 +73,6 @@ function getLocation(){
     navigator.geolocation.getCurrentPosition(findLocation, showError, {enableHighAccuracy:true,maximumAge:600000})
 }
 
-
 function showError(error) {
     alert(error.code + ' ' + error.message);
 }
@@ -97,8 +96,6 @@ async function getCity(latitude, longitude){
     cidade_inner.innerHTML = formatText(cidade)
     getTempo(cidade)
 }
-// teste polypane
-//getTempo(cidade)
 
 // Achar tempo
 async function getTempo(cidade){
