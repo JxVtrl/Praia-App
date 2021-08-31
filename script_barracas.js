@@ -211,9 +211,9 @@ function initMap(coord) {
             <li class="item_lista" id="${props.nome}">
                 <span class="numero_marcador">${props.numero}</span>
                 <span class="nome_marcador">${props.nome}</span>
-                <div class="info-go" id="${props.nome}">
-                    <ion-icon name="ellipse-sharp" class="online" id="${props.nome}"></ion-icon>
-                    <ion-icon name="chevron-forward-sharp" id="${props.nome}"></ion-icon>
+                <div class="info-go ${props.nome}" class="">
+                    <ion-icon id="${props.numero}" name="ellipse-sharp" class="online"></ion-icon>
+                    <ion-icon name="chevron-forward-sharp"></ion-icon>
                 </div>
             </li>`
     }
@@ -232,17 +232,30 @@ function initMap(coord) {
                     lng = marcadores[numeroObjeto].coords.lng
                 }
                 // Centralizar ao clicar no numero do marcador
-                if(marcadores[i].numero == event.target.innerHTML){
+                else if(marcadores[i].numero == event.target.innerHTML){
                     let numeroObjeto = i
                     lat = marcadores[numeroObjeto].coords.lat
                     lng = marcadores[numeroObjeto].coords.lng
                 }
                 // Centralizar ao clicar no item da lista
-                if(marcadores[i].nome == event.target.id){
+                else if(marcadores[i].nome == event.target.class){
                     let numeroObjeto = i
                     lat = marcadores[numeroObjeto].coords.lat
                     lng = marcadores[numeroObjeto].coords.lng
                 }
+                // Centralizar ao clicar no item da lista
+                else if(marcadores[i].nome == event.target.id){
+                    let numeroObjeto = i
+                    lat = marcadores[numeroObjeto].coords.lat
+                    lng = marcadores[numeroObjeto].coords.lng
+                }
+                // Centralizar ao clicar no item da lista
+                else if(marcadores[i].numero == event.target.id){
+                    let numeroObjeto = i
+                    lat = marcadores[numeroObjeto].coords.lat
+                    lng = marcadores[numeroObjeto].coords.lng
+                }
+
             }
             let coord = [lat, lng, 15]
             
