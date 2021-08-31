@@ -28,21 +28,6 @@ function formatHora(hora){
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                          MAPS
 
-// Achar localizacao
-// getLocation()
-// function getLocation(){
-//     navigator.geolocation.getCurrentPosition(findLocation, showError, {enableHighAccuracy:true,maximumAge:600000})
-// }
-
-
-// function showError(error) {
-//     alert(error.code + ' ' + error.message);
-// }
-
-// function findLocation(position){
-//     const latitude  = position.coords.latitude
-//     const longitude = position.coords.longitude
-// }
 
 const lista_marcadores = document.getElementById('lista-barracas')
 // Clique do Botão
@@ -72,7 +57,7 @@ function initMap(coord) {
     if(coord){
         initialCoord.lat = coord[0]
         initialCoord.lng = coord[1]
-        zoom = 15
+        zoom = 14
     }
 
     // Opcoes do Mapa
@@ -188,8 +173,6 @@ function initMap(coord) {
         },
 
     ]
-    
-    
 
     // Adicionar todos os marcadores ao mapa
     for(let i = 0; i < marcadores.length; i++){
