@@ -24,6 +24,7 @@ body{
     text-align: center;
     align-items: center;
     margin: 50px auto;
+    width: -moz-fit-content;
     width: fit-content;
     background-color: #ffffff9a;
     border-radius: 10px;
@@ -32,6 +33,7 @@ body{
 
 #form-entrada{
     margin: 10px auto 15px;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -71,6 +73,7 @@ main{
 }
 
 #img-container{
+    width: -moz-fit-content;
     width: fit-content;
     margin: 30px auto 0 auto;
 }
@@ -208,7 +211,8 @@ main{
 }
 
 #title{
-    height: fit-content;   
+    height: -moz-fit-content; 
+    height: fit-content;  
     background-color: rgba(255, 255, 255, 0.083);
     border-radius: 5px;
     box-shadow: 0px 0px 15px #0000000e; 
@@ -274,6 +278,7 @@ main{
 }
 
 #descricao-tempo{
+    width: -moz-fit-content;
     width: fit-content;
     margin: 0 auto;
     font-weight: 600;
@@ -284,6 +289,7 @@ main{
 }
 
 .icone-info{
+    width: -moz-fit-content;
     width: fit-content;
     margin: 0 auto;
 }
