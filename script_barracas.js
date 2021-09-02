@@ -57,7 +57,7 @@ function initMap(coord) {
     if(coord){
         initialCoord.lat = coord[0]
         initialCoord.lng = coord[1]
-        zoom = 14
+        zoom = coord[2]
     }
 
     // Opcoes do Mapa
@@ -71,6 +71,7 @@ function initMap(coord) {
         fullscreenControlOptions: {
             position: google.maps.ControlPosition.RIGHT_TOP
         },
+        // Estilos do Mapa
         styles: [
             {
                 "featureType": "all",
@@ -174,9 +175,13 @@ function initMap(coord) {
 
     ]
 
+    const title_barracas = document.getElementById('title-barracas-proximas')
     // Adicionar todos os marcadores ao mapa
     for(let i = 0; i < marcadores.length; i++){
         addMarker(marcadores[i])
+        if(i === 0){
+            title_barracas.innerHTML = 'Barracas Proximas'
+        }
     }
 
     function addMarker(props){
@@ -213,51 +218,65 @@ function initMap(coord) {
                 <span class="nome_marcador">${props.nome}</span>
                 <div class="info-go ${props.nome}" class="">
                     <ion-icon id="${props.numero}" name="ellipse-sharp" class="online"></ion-icon>
-                    <ion-icon name="chevron-forward-sharp"></ion-icon>
+                    <ion-icon name="chevron-forward-sharp" class="pagina-da-barraca"></ion-icon>
                 </div>
             </li>`
     }
 
-    // Centralizar o mapa na posição do marcador ao ser clicado
+    // Centralizar o mapa na posição do marcador ao item da lista ser clicado
     document.querySelectorAll('.item_lista').forEach(item => {
         item.addEventListener('click', function(event){
-            let lat, lng
+            let lat, lng, zoom
             event.preventDefault()
-            console.log(event.target)
-            for(let i = 0; i < marcadores.length; i++){
-                // Centralizar ao clicar no nome do marcador
-                if(marcadores[i].nome == event.target.innerHTML){
-                    let numeroObjeto = i
-                    lat = marcadores[numeroObjeto].coords.lat
-                    lng = marcadores[numeroObjeto].coords.lng
+            // Verifica se o que foi clicado abre a pagina da barraca
+            if(event.target.classList[0] == 'pagina-da-barraca'){
+                let father = event.target.parentElement.parentElement
+                let nome = father.id
+                for(let i = 0; i < marcadores.length; i++){
+                    if(marcadores[i].nome == nome){
+                        lat = marcadores[i].coords.lat
+                        lng = marcadores[i].coords.lng
+                    }
                 }
-                // Centralizar ao clicar no numero do marcador
-                else if(marcadores[i].numero == event.target.innerHTML){
-                    let numeroObjeto = i
-                    lat = marcadores[numeroObjeto].coords.lat
-                    lng = marcadores[numeroObjeto].coords.lng
-                }
-                // Centralizar ao clicar no item da lista
-                else if(marcadores[i].nome == event.target.class){
-                    let numeroObjeto = i
-                    lat = marcadores[numeroObjeto].coords.lat
-                    lng = marcadores[numeroObjeto].coords.lng
-                }
-                // Centralizar ao clicar no item da lista
-                else if(marcadores[i].nome == event.target.id){
-                    let numeroObjeto = i
-                    lat = marcadores[numeroObjeto].coords.lat
-                    lng = marcadores[numeroObjeto].coords.lng
-                }
-                // Centralizar ao clicar no item da lista
-                else if(marcadores[i].numero == event.target.id){
-                    let numeroObjeto = i
-                    lat = marcadores[numeroObjeto].coords.lat
-                    lng = marcadores[numeroObjeto].coords.lng
-                }
+                zoom = 18
+
 
             }
-            let coord = [lat, lng, 15]
+            else{
+                zoom = 15
+                for(let i = 0; i < marcadores.length; i++){
+                    // Centralizar ao clicar no nome do marcador
+                    if(marcadores[i].nome == event.target.innerHTML){
+                        let numeroObjeto = i
+                        lat = marcadores[numeroObjeto].coords.lat
+                        lng = marcadores[numeroObjeto].coords.lng
+                    }
+                    // Centralizar ao clicar no numero do marcador
+                    else if(marcadores[i].numero == event.target.innerHTML){
+                        let numeroObjeto = i
+                        lat = marcadores[numeroObjeto].coords.lat
+                        lng = marcadores[numeroObjeto].coords.lng
+                    }
+                    // Centralizar ao clicar no item da lista
+                    else if(marcadores[i].nome == event.target.class){
+                        let numeroObjeto = i
+                        lat = marcadores[numeroObjeto].coords.lat
+                        lng = marcadores[numeroObjeto].coords.lng
+                    }
+                    // Centralizar ao clicar no item da lista
+                    else if(marcadores[i].nome == event.target.id){
+                        let numeroObjeto = i
+                        lat = marcadores[numeroObjeto].coords.lat
+                        lng = marcadores[numeroObjeto].coords.lng
+                    }
+                    // Centralizar ao clicar no item da lista
+                    else if(marcadores[i].numero == event.target.id){
+                        let numeroObjeto = i
+                        lat = marcadores[numeroObjeto].coords.lat
+                        lng = marcadores[numeroObjeto].coords.lng
+                    }
+                }
+            }
             
             if(document.getElementById('map-container').classList.contains('hide')){
                 document.getElementById('map-container').classList.remove('hide')
@@ -267,6 +286,7 @@ function initMap(coord) {
             if(!lista_marcadores.innerHTML == ''){
                 lista_marcadores.innerHTML = ''
             }
+            let coord = [lat, lng, zoom]
             initMap(coord)
         })
     })
