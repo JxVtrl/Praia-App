@@ -453,6 +453,18 @@ footer div{
     text-align: center;
 }
 
+#container-title-lista-barracas{
+    width: 100%;
+    display: block;
+}
+
+#title-barracas-proximas{
+    text-align: center;
+    justify-self: center;
+    font-size: 13px;
+    
+}
+
 /** Celulares menores */
 @media screen and (max-height: 699px){ 
     
