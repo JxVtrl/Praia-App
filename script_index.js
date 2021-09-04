@@ -236,10 +236,10 @@ function formatText(texto){
 // Icone do tempo EM PROGRESSO
 function imprimeIconeTempo(tempo, horas){
     const icone = document.getElementById('icone-tempo-container')
-    console.log(tempo)
+    
     switch(tempo){
         case 'céu limpo':
-            if(horas > 6 && horas < 18) icone.innerHTML = `<ion-icon class="icone-tempo" name="sunny-sharp"></ion-icon>`
+            if(horas.innerHTML > 6 && horas.innerHTML < 18) icone.innerHTML = `<ion-icon class="icone-tempo" name="sunny-sharp"></ion-icon>`
             else icone.innerHTML = `<ion-icon class="icone-tempo" name="moon-sharp"></ion-icon>`
             break
         case 'nublado':
@@ -256,5 +256,3 @@ function imprimeIconeTempo(tempo, horas){
         break
     }
 }
-
-
